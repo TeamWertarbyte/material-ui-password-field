@@ -27,8 +27,7 @@ const getStyles = (props, context, state) => {
     },
     input: {
       width: '100%',
-      paddingRight: 38,
-      marginRight: -38
+      paddingRight: 48
     },
     hint: {
       position: 'relative',
@@ -42,7 +41,8 @@ const getStyles = (props, context, state) => {
       color: errorColor
     },
     visibilityButton: {
-      marginTop: 22
+      margin: '22px -8px 0 10px',
+      padding: 0
     },
     visibilityIcon: {
       opacity: !props.disabled && state.focused ? 0.54 : 0.38
