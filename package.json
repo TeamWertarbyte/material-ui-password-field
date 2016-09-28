@@ -1,0 +1,46 @@
+{
+  "name": "material-ui-password-field",
+  "version": "1.0.0",
+  "description": "A password field using Material-UI.",
+  "main": "lib/PasswordField.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepublish": "babel src -d lib",
+    "storybook": "start-storybook -p 6006",
+    "deploy-storybook": "storybook-to-ghpages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamWertarbyte/material-ui-password-field.git"
+  },
+  "keywords": [
+    "react",
+    "material",
+    "password",
+    "field",
+    "input"
+  ],
+  "author": "Wertarbyte <kontakt@wertarbyte.com> (https://wertarbyte.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeamWertarbyte/material-ui-password-field/issues"
+  },
+  "homepage": "https://github.com/TeamWertarbyte/material-ui-password-field#readme",
+  "devDependencies": {
+    "@kadira/storybook": "2.15.1",
+    "@kadira/storybook-deployer": "^1.2.0",
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "material-ui": "^0.15.4",
+    "react": "^15.3.2",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+  "peerDependencies": {
+    "material-ui": "~0.15.4",
+    "react": "~15.3.1",
+    "react-tap-event-plugin": "^1.0.0"
+  }
+}
