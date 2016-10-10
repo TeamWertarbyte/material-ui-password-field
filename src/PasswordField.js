@@ -25,9 +25,12 @@ const getStyles = (props, context, state) => {
       display: 'flex',
       width: props.fullWidth ? '100%' : null
     },
+    inputContainer: {
+      flex: 1
+    },
     input: {
       width: '100%',
-      paddingRight: 48
+      paddingRight: 56
     },
     hint: {
       position: 'relative',
@@ -41,11 +44,15 @@ const getStyles = (props, context, state) => {
       color: errorColor
     },
     visibilityButton: {
-      margin: '22px -8px 0 10px',
-      padding: 0
+      margin: '22px 0 0 8px',
+      width: 48,
+      height: 48,
+      padding: 12
     },
     visibilityIcon: {
-      opacity: !props.disabled && state.focused ? 0.54 : 0.38
+      opacity: !props.disabled && state.focused ? 0.54 : 0.38,
+      width: 24,
+      height: 24
     }
   }
 
@@ -116,7 +123,7 @@ class PasswordField extends React.Component {
 
     return (
       <div style={{ ...styles.root, ...style }}>
-        <div style={{ width: '100%'}}>
+        <div style={styles.inputContainer}>
           <TextField
             {...other}
             errorStyle={styles.error}

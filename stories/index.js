@@ -31,7 +31,7 @@ storiesOf('PasswordField', module)
     <PasswordField
       hintText="At least 8 characters"
       floatingLabelText="Enter your password"
-      value="wqfasds"
+      value="password"
       visible
       style={{ width: 400 }}
     />
@@ -40,7 +40,7 @@ storiesOf('PasswordField', module)
     <PasswordField
       hintText="At least 8 characters"
       floatingLabelText="Enter your password"
-      value="wqfasds"
+      value="password"
       style={{ width: 400 }}
     />
   ))
@@ -48,7 +48,7 @@ storiesOf('PasswordField', module)
     <PasswordField
       hintText="At least 8 characters"
       floatingLabelText="Enter your password"
-      value="wqfasds"
+      value="password"
       disabled
       style={{ width: 400 }}
     />
@@ -59,5 +59,14 @@ storiesOf('PasswordField', module)
       floatingLabelText="Enter your password"
       errorText="The email and password you entered don't match"
       style={{ width: 400 }}
+    />
+  ))
+  .add('controlled', () => themed(
+    <PasswordField
+      hintText="At least 8 characters"
+      floatingLabelText="Enter your password"
+      value=""
+      onChange={action('onChange')}
+      fullWidth
     />
   ))
