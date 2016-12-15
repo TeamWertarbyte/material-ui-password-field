@@ -126,7 +126,7 @@ class PasswordField extends React.Component {
         <div style={styles.inputContainer}>
           <TextField
             {...other}
-            errorStyle={styles.error}
+            errorStyle={{...styles.error, ...errorStyle}}
             errorText={errorText}
             hintText={null}
             style={{ ...styles.input, ...textFieldStyle }}
