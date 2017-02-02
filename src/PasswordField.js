@@ -102,6 +102,7 @@ class PasswordField extends React.Component {
 
   render () {
     const {
+      disableButton,
       hintText,
       errorText,
       errorStyle,
@@ -140,7 +141,7 @@ class PasswordField extends React.Component {
           onTouchTap={() => this.toggleVisibility()}
           iconStyle={styles.visibilityIcon}
           style={styles.visibilityButton}
-          disabled={other.disabled}
+          disabled={disableButton || other.disabled}
         >
           {visible ? <Visibility /> : <VisibilityOff />}
         </IconButton>
@@ -152,6 +153,7 @@ class PasswordField extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
   PasswordField.propTypes = {
     ...TextField.propTypes,
+    disableButton: PropTypes.bool,
     visible: PropTypes.bool,
     textFieldStyle: PropTypes.object
   }
