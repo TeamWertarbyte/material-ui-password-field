@@ -27,6 +27,12 @@ storiesOf('PasswordField', module)
       style={{ width: 400 }}
     />
   ))
+  .add('normal without any labels', () => themed(
+    <PasswordField
+      name="no-label"
+      style={{ width: 400 }}
+    />
+  ))
   .add('visible', () => themed(
     <PasswordField
       hintText="At least 8 characters"
