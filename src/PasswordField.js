@@ -1,3 +1,7 @@
+/**
+ * Notice: Some code was adapted from Material-UI's TextField component.
+ *         Copyright (c) 2014 Call-Em-All (https://github.com/callemall/material-ui)
+ */
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
@@ -8,16 +12,10 @@ import {fade} from 'material-ui/utils/colorManipulator'
 
 const getStyles = (props, context, state) => {
   const {
-    baseTheme,
     textField: {
-      floatingLabelColor,
-      focusColor,
-      textColor,
       disabledTextColor,
-      backgroundColor,
-      hintColor,
-      errorColor,
-    },
+      errorColor
+    }
   } = context.muiTheme
 
   const styles = {
@@ -38,7 +36,7 @@ const getStyles = (props, context, state) => {
       fontSize: 12,
       lineHeight: '12px',
       color: props.errorText ? errorColor : fade(disabledTextColor, 0.5),
-      transition: transitions.easeOut(),
+      transition: transitions.easeOut()
     },
     error: {
       color: errorColor
@@ -61,10 +59,6 @@ const getStyles = (props, context, state) => {
 }
 
 class PasswordField extends React.Component {
-  static contextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-  }
-
   constructor (props) {
     super(props)
     this.state = {
@@ -109,8 +103,8 @@ class PasswordField extends React.Component {
       errorStyle,
       textFieldStyle,
       style,
-      type,
-      fullWidth,
+      type, // eslint-disable-line
+      fullWidth, // eslint-disable-line
       ...other
     } = this.props
 
@@ -121,7 +115,7 @@ class PasswordField extends React.Component {
     const styles = getStyles(this.props, this.context, this.state)
 
     const { prepareStyles } = this.context.muiTheme
-    const actualErrorText = errorText ? errorText : hintText
+    const actualErrorText = errorText || hintText
 
     return (
       <div style={{ ...styles.root, ...style }}>
@@ -150,6 +144,10 @@ class PasswordField extends React.Component {
       </div>
     )
   }
+}
+
+PasswordField.contextTypes = {
+  muiTheme: PropTypes.object.isRequired
 }
 
 if (process.env.NODE_ENV !== 'production') {
