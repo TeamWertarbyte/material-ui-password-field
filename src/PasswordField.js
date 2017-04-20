@@ -44,7 +44,8 @@ const getStyles = (props, context, state) => {
       color: errorColor
     },
     visibilityButton: {
-      margin: '22px 0 0 8px',
+      marginTop: props.floatingLabelText ? 22 : -2,
+      marginLeft: 8,
       width: 48,
       height: 48,
       padding: 12
@@ -63,7 +64,7 @@ class PasswordField extends React.Component {
   static contextTypes = {
     muiTheme: PropTypes.object.isRequired,
   }
-  
+
   constructor (props) {
     super(props)
     this.state = {
@@ -116,7 +117,7 @@ class PasswordField extends React.Component {
     const {
       visible
     } = this.state
-    
+
     const styles = getStyles(this.props, this.context, this.state)
 
     const { prepareStyles } = this.context.muiTheme
