@@ -143,7 +143,7 @@ class PasswordField extends React.Component {
           iconStyle={styles.visibilityIcon}
           style={styles.visibilityButton}
           disabled={disableButton || other.disabled}
-          tabIndex={-1}
+          tabIndex={0}
         >
           {visible ? <Visibility /> : <VisibilityOff />}
         </IconButton>
