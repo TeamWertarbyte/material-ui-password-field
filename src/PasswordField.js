@@ -20,15 +20,12 @@ const getStyles = (props, context, state) => {
 
   const styles = {
     root: {
-      display: 'flex',
-      width: props.fullWidth ? '100%' : null
-    },
-    inputContainer: {
-      flex: 1
+      position: 'relative',
+      display: props.fullWidth ? 'block' : 'inline-block'
     },
     input: {
-      width: '100%',
-      paddingRight: 56
+      paddingRight: 56,
+      boxSizing: 'border-box'
     },
     hint: {
       position: 'relative',
@@ -46,7 +43,10 @@ const getStyles = (props, context, state) => {
       marginLeft: 8,
       width: 48,
       height: 48,
-      padding: 12
+      padding: 12,
+      position: 'absolute',
+      top: 0,
+      right: 0
     },
     visibilityIcon: {
       opacity: !props.disabled && state.focused ? 0.54 : 0.38,
@@ -102,9 +102,11 @@ class PasswordField extends React.Component {
       errorText,
       errorStyle,
       textFieldStyle,
-      style,
+      style: {
+        width,
+        ...otherStyle
+      },
       type, // eslint-disable-line
-      fullWidth, // eslint-disable-line
       ...other
     } = this.props
 
@@ -118,20 +120,18 @@ class PasswordField extends React.Component {
     const actualErrorText = errorText || hintText
 
     return (
-      <div style={{ ...styles.root, ...style }}>
-        <div style={styles.inputContainer}>
-          <TextField
-            {...other}
-            errorStyle={{...styles.error, ...errorStyle}}
-            errorText={errorText}
-            hintText={null}
-            style={{ ...styles.input, ...textFieldStyle }}
-            type={visible ? 'text' : 'password'}
-            onFocus={(event) => this.handleInputFocus(event)}
-            onBlur={(event) => this.handleInputBlur(event)}
-          />
-          {hintText && !errorText ? <div style={prepareStyles(styles.hint)}>{actualErrorText}</div> : null}
-        </div>
+      <div style={{ ...styles.root, ...otherStyle }}>
+        <TextField
+          {...other}
+          errorStyle={{...styles.error, ...errorStyle}}
+          errorText={errorText}
+          hintText={null}
+          style={{ ...styles.input, width, ...textFieldStyle }}
+          type={visible ? 'text' : 'password'}
+          onFocus={(event) => this.handleInputFocus(event)}
+          onBlur={(event) => this.handleInputBlur(event)}
+        />
+        {hintText && !errorText ? <div style={prepareStyles(styles.hint)}>{actualErrorText}</div> : null}
         <IconButton
           onTouchTap={() => this.toggleVisibility()}
           iconStyle={styles.visibilityIcon}
@@ -148,6 +148,10 @@ class PasswordField extends React.Component {
 
 PasswordField.contextTypes = {
   muiTheme: PropTypes.object.isRequired
+}
+
+PasswordField.defaultProps = {
+  style: {}
 }
 
 if (process.env.NODE_ENV !== 'production') {
