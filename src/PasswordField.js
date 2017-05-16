@@ -25,7 +25,7 @@ const getStyles = (props, context, state) => {
       display: props.fullWidth ? 'block' : 'inline-block'
     },
     input: {
-      paddingRight: 56,
+      paddingRight: 59,
       boxSizing: 'border-box'
     },
     hint: {
