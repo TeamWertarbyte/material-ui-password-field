@@ -3,6 +3,7 @@ import { storiesOf, action } from '@kadira/storybook'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import TextField from 'material-ui/TextField'
 import PasswordField from '../src/PasswordField'
 
 function themed (children) {
@@ -76,4 +77,16 @@ storiesOf('PasswordField', module)
       onChange={action('onChange')}
       fullWidth
     />
+  ))
+  .add('vs TextField', () => themed(
+    <div>
+      <div>
+        <PasswordField
+          floatingLabelText='This is a PasswordField' />
+      </div>
+      <div>
+        <TextField
+          floatingLabelText='This is a TextField' />
+      </div>
+    </div>
   ))
