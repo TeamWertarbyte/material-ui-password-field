@@ -2,7 +2,8 @@
  * Notice: Some code was adapted from Material-UI's TextField component.
  *         Copyright (c) 2014 Call-Em-All (https://github.com/callemall/material-ui)
  */
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import Visibility from 'material-ui/svg-icons/action/visibility'

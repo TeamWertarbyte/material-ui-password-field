@@ -5,8 +5,8 @@
   "main": "lib/PasswordField.js",
   "scripts": {
     "test": "standard",
-    "build": "babel src -d lib",
-    "prepublish": "babel src -d lib",
+    "build": "rm -r lib && babel src -d lib",
+    "prepublish": "rm -r lib && babel src -d lib",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages"
   },
@@ -35,15 +35,18 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
-    "material-ui": "^0.16.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "material-ui": "^0.18.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-tap-event-plugin": "^2.0.0",
     "standard": "^10.0.2"
   },
   "peerDependencies": {
-    "material-ui": ">=0.16.7",
-    "react": "~15.4.2",
+    "material-ui": "<1.0.0",
+    "react": "^15.4.2",
     "react-tap-event-plugin": "^2.0.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }
