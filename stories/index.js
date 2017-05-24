@@ -78,7 +78,7 @@ storiesOf('PasswordField', module)
       fullWidth
     />
   ))
-  .add('with overrided button styles', () => themed(
+  .add('with custom visibility button styles', () => themed(
     <PasswordField
       hintText='At least 8 characters'
       floatingLabelText='Enter your password'
@@ -86,7 +86,7 @@ storiesOf('PasswordField', module)
       visibilityButtonStyle={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}
     />
   ))
-  .add('with overrided icon styles', () => themed(
+  .add('with custom visibility icon styles', () => themed(
     <PasswordField
       hintText='At least 8 characters'
       floatingLabelText='Enter your password'
