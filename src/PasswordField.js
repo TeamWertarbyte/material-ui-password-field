@@ -106,7 +106,7 @@ class PasswordField extends React.Component {
       visibilityButtonStyle,
       visibilityIconStyle,
       style: {
-        width,
+        width = this.props.fullWidth ? '100%' : 'inherit',
         ...otherStyle
       },
       type, // eslint-disable-line

@@ -75,6 +75,12 @@ storiesOf('PasswordField', module)
       floatingLabelText='Enter your password'
       value=''
       onChange={action('onChange')}
+    />
+  ))
+  .add('fullWidth', () => themed(
+    <PasswordField
+      hintText='At least 8 characters'
+      floatingLabelText='Enter your password'
       fullWidth
     />
   ))
@@ -98,11 +104,25 @@ storiesOf('PasswordField', module)
     <div>
       <div>
         <PasswordField
-          floatingLabelText='This is a PasswordField' />
+          floatingLabelText='This is a PasswordField'
+        />
       </div>
       <div>
         <TextField
-          floatingLabelText='This is a TextField' />
+          floatingLabelText='This is a TextField'
+        />
+      </div>
+      <div>
+        <PasswordField
+          floatingLabelText='This is a PasswordField'
+          fullWidth
+        />
+      </div>
+      <div>
+        <TextField
+          floatingLabelText='This is a TextField'
+          fullWidth
+        />
       </div>
     </div>
   ))
