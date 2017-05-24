@@ -78,6 +78,22 @@ storiesOf('PasswordField', module)
       fullWidth
     />
   ))
+  .add('with custom visibility button styles', () => themed(
+    <PasswordField
+      hintText='At least 8 characters'
+      floatingLabelText='Enter your password'
+      value=''
+      visibilityButtonStyle={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}
+    />
+  ))
+  .add('with custom visibility icon styles', () => themed(
+    <PasswordField
+      hintText='At least 8 characters'
+      floatingLabelText='Enter your password'
+      value=''
+      visibilityIconStyle={{fill: 'red'}}
+    />
+  ))
   .add('vs TextField', () => themed(
     <div>
       <div>

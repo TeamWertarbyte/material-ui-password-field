@@ -103,6 +103,8 @@ class PasswordField extends React.Component {
       errorText,
       errorStyle,
       textFieldStyle,
+      visibilityButtonStyle,
+      visibilityIconStyle,
       style: {
         width,
         ...otherStyle
@@ -135,8 +137,8 @@ class PasswordField extends React.Component {
         {hintText && !errorText ? <div style={prepareStyles(styles.hint)}>{actualErrorText}</div> : null}
         <IconButton
           onTouchTap={() => this.toggleVisibility()}
-          iconStyle={styles.visibilityIcon}
-          style={styles.visibilityButton}
+          iconStyle={{...styles.visibilityIcon, ...visibilityIconStyle}}
+          style={{...styles.visibilityButton, ...visibilityButtonStyle}}
           disabled={disableButton || other.disabled}
           tabIndex={-1}
         >
@@ -160,7 +162,9 @@ if (process.env.NODE_ENV !== 'production') {
     ...TextField.propTypes,
     disableButton: PropTypes.bool,
     visible: PropTypes.bool,
-    textFieldStyle: PropTypes.object
+    textFieldStyle: PropTypes.object,
+    visibilityButtonStyle: PropTypes.object,
+    visibilityIconStyle: PropTypes.object 
   }
   delete PasswordField.propTypes.multiLine
   delete PasswordField.propTypes.type
