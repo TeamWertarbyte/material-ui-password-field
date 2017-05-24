@@ -164,7 +164,7 @@ if (process.env.NODE_ENV !== 'production') {
     visible: PropTypes.bool,
     textFieldStyle: PropTypes.object,
     visibilityButtonStyle: PropTypes.object,
-    visibilityIconStyle: PropTypes.object 
+    visibilityIconStyle: PropTypes.object
   }
   delete PasswordField.propTypes.multiLine
   delete PasswordField.propTypes.type
