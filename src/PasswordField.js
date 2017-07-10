@@ -76,6 +76,10 @@ class PasswordField extends React.Component {
     }
   }
 
+  /**
+   * Toogles the visibility the password.
+   * @public
+   */
   toggleVisibility () {
     this.setState({
       visible: !this.state.visible
@@ -108,7 +112,7 @@ class PasswordField extends React.Component {
       style: {
         width = this.props.fullWidth ? '100%' : 'inherit',
         ...otherStyle
-      },
+      } = {},
       type, // eslint-disable-line
       ...other
     } = this.props
@@ -154,16 +158,36 @@ PasswordField.contextTypes = {
 }
 
 PasswordField.defaultProps = {
-  style: {}
+  disableButton: false,
+  visible: false
 }
 
 if (process.env.NODE_ENV !== 'production') {
   PasswordField.propTypes = {
     ...TextField.propTypes,
+    /**
+     * Set this to `true` to disable the visibility button.
+     */
     disableButton: PropTypes.bool,
+    /**
+     * Set this to `true` to make the password _initially_ visible. Use `toggleVisibility()` to change it later.
+     */
     visible: PropTypes.bool,
+    /**
+     * Override the inline-styles of the root element.
+     */
+    style: PropTypes.object,
+    /**
+     * Override the inline-styles of the [TextField](http://www.material-ui.com/v0.18.6/#/components/text-field) element.
+     */
     textFieldStyle: PropTypes.object,
+    /**
+     * Override the inline-styles of the [IconButton](http://www.material-ui.com/v0.18.6/#/components/icon-button) element.
+     */
     visibilityButtonStyle: PropTypes.object,
+    /**
+     * Override the inline-styles of the [SvgIcon](http://www.material-ui.com/v0.18.6/#/components/svg-icon) element used for the visibility icon.
+     */
     visibilityIconStyle: PropTypes.object
   }
   delete PasswordField.propTypes.multiLine
