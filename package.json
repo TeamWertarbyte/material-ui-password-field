@@ -5,8 +5,8 @@
   "main": "lib/PasswordField.js",
   "scripts": {
     "test": "standard",
-    "build": "rm -r lib && babel src -d lib",
-    "prepublish": "rm -r lib && babel src -d lib",
+    "build": "rm -rf lib && babel src -d lib",
+    "prepare": "rm -rf lib && babel src -d lib",
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
     "styleguide": "mui-styleguidist server",
