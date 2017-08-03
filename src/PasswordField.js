@@ -103,17 +103,18 @@ class PasswordField extends React.Component {
   render () {
     const {
       disableButton,
-      hintText,
       errorText,
       errorStyle,
-      textFieldStyle,
-      visibilityButtonStyle,
-      visibilityIconStyle,
+      hintText,
       style: {
         width = this.props.fullWidth ? '100%' : 'inherit',
         ...otherStyle
       } = {},
+      textFieldStyle,
       type, // eslint-disable-line
+      visibilityButtonStyle,
+      visibilityIconStyle,
+      visible: visibleProp, // eslint-disable-line
       ...other
     } = this.props
 
