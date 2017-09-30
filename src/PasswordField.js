@@ -10,6 +10,7 @@ import Visibility from 'material-ui/svg-icons/action/visibility'
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off'
 import transitions from 'material-ui/styles/transitions'
 import {fade} from 'material-ui/utils/colorManipulator'
+import ToggleIcon from 'material-ui-toggle-icon'
 
 const getStyles = (props, context, state) => {
   const {
@@ -148,7 +149,11 @@ class PasswordField extends React.Component {
           disabled={disableButton || other.disabled}
           tabIndex={-1}
         >
-          {visible ? <Visibility /> : <VisibilityOff />}
+          <ToggleIcon
+            on={visible}
+            onIcon={<Visibility />}
+            offIcon={<VisibilityOff />}
+          />
         </IconButton>
       </div>
     )
