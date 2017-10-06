@@ -142,7 +142,7 @@ class PasswordField extends React.Component {
         />
         {hintText && !errorText ? <div style={prepareStyles(styles.hint)}>{actualErrorText}</div> : null}
         <IconButton
-          onTouchTap={() => this.toggleVisibility()}
+          onClick={() => this.toggleVisibility()}
           onMouseDown={(e) => e.preventDefault()}
           iconStyle={{...styles.visibilityIcon, ...visibilityIconStyle}}
           style={{...styles.visibilityButton, ...visibilityButtonStyle}}
