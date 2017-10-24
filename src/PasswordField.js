@@ -2,9 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Input, { InputAdornment } from 'material-ui/Input'
 import IconButton from 'material-ui/IconButton'
-import Visibility from 'material-ui/svg-icons/action/visibility'
-import VisibilityOff from 'material-ui/svg-icons/action/visibility-off'
+import { withStyles } from 'material-ui/styles'
+import Visibility from 'material-ui-icons/Visibility'
+import VisibilityOff from 'material-ui-icons/VisibilityOff'
 // import ToggleIcon from 'material-ui-toggle-icon'
+
+const styles = {
+  adornment: {
+    position: 'relative',
+    bottom: -6
+  }
+}
 
 class PasswordField extends React.Component {
   constructor (props) {
@@ -26,7 +34,7 @@ class PasswordField extends React.Component {
    * Toogles the visibility the password.
    * @public
    */
-  toggleVisibility () {
+  toggleVisibility = () => {
     this.setState({
       visible: !this.state.visible
     })
@@ -38,6 +46,7 @@ class PasswordField extends React.Component {
 
   render () {
     const {
+      classes,
       disableButton,
       visibilityButtonStyle,
       visibilityIconStyle,
@@ -54,7 +63,7 @@ class PasswordField extends React.Component {
         {...other}
         type={this.state.visible ? 'text' : 'password'}
         endAdornment={
-          <InputAdornment position='end'>
+          <InputAdornment position='end' className={classes.adornment}>
             <IconButton
               onClick={this.toggleVisibility}
               onMouseDown={this.handleButtonMouseDown}
@@ -84,4 +93,4 @@ PasswordField.propTypes = {
   visible: PropTypes.bool
 }
 
-export default PasswordField
+export default withStyles(styles)(PasswordField)
