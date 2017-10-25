@@ -4,7 +4,7 @@
   "description": "A password field using Material-UI.",
   "main": "lib/PasswordField.js",
   "scripts": {
-    "test": "standard && jest",
+    "test": "jest",
     "test:coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "test:unit": "jest",
     "build": "rm -rf lib && babel src -d lib",
