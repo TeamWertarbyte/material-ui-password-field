@@ -4,7 +4,9 @@
   "description": "A password field using Material-UI.",
   "main": "lib/PasswordField.js",
   "scripts": {
-    "test": "standard",
+    "test": "standard && jest",
+    "test:coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "test:unit": "jest",
     "build": "rm -rf lib && babel src -d lib",
     "prepare": "rm -rf lib && babel src -d lib",
     "storybook": "start-storybook -p 6006",
@@ -35,13 +37,18 @@
     "babel-cli": "^6.14.0",
     "babel-core": "^6.8.0",
     "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-to-json": "^3.1.4",
+    "jest": "^21.2.1",
     "material-ui": "^1.0.0-beta.18",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.3"
   },
   "peerDependencies": {
     "material-ui": "^1.0.0-beta.18",
@@ -49,10 +56,26 @@
   },
   "dependencies": {
     "material-ui-icons": "^1.0.0-beta.17",
-    "material-ui-toggle-icon": "^0.2.0",
+    "material-ui-toggle-icon": "^1.0.0-0",
     "prop-types": "^15.5.10"
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/shim.js",
+      "./test/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/test"
+    ],
+    "roots": [
+      "src",
+      "test"
+    ]
   }
 }

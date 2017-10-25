@@ -5,12 +5,17 @@ import IconButton from 'material-ui/IconButton'
 import { withStyles } from 'material-ui/styles'
 import Visibility from 'material-ui-icons/Visibility'
 import VisibilityOff from 'material-ui-icons/VisibilityOff'
-// import ToggleIcon from 'material-ui-toggle-icon'
+import ToggleIcon from 'material-ui-toggle-icon'
 
 const styles = {
-  adornment: {
-    position: 'relative',
-    bottom: -6
+  root: {
+    // TODO remove this when beta.18 is published, see material-ui#8825
+    display: 'inline-flex',
+    alignItems: 'baseline'
+  },
+  input: {
+    // TODO remove this when beta.18 is published, see material-ui#8825
+    width: '100%'
   }
 }
 
@@ -47,7 +52,7 @@ class PasswordField extends React.Component {
   render () {
     const {
       classes,
-      disableButton,
+      buttonDisabled,
       visibilityButtonStyle,
       visibilityIconStyle,
       visible: visibleProp, // eslint-disable-line
@@ -61,15 +66,20 @@ class PasswordField extends React.Component {
     return (
       <Input
         {...other}
+        classes={{ root: classes.root, input: classes.input }}
         type={this.state.visible ? 'text' : 'password'}
         endAdornment={
           <InputAdornment position='end' className={classes.adornment}>
             <IconButton
               onClick={this.toggleVisibility}
               onMouseDown={this.handleButtonMouseDown}
-              disabled={disableButton}
+              disabled={other.disabled || buttonDisabled}
             >
-              {visible ? <VisibilityOff /> : <Visibility />}
+              <ToggleIcon
+                on={visible}
+                onIcon={<Visibility />}
+                offIcon={<VisibilityOff />}
+              />
             </IconButton>
           </InputAdornment>
         }
@@ -78,18 +88,14 @@ class PasswordField extends React.Component {
   }
 }
 
-PasswordField.contextTypes = {
-  muiTheme: PropTypes.object.isRequired
-}
-
 PasswordField.defaultProps = {
-  disableButton: false,
+  buttonDisabled: false,
   visible: false
 }
 
 PasswordField.propTypes = {
   ...Input.propTypes,
-  disableButton: PropTypes.bool,
+  buttonDisabled: PropTypes.bool,
   visible: PropTypes.bool
 }
 

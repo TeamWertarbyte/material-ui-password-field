@@ -1,0 +1,47 @@
+/* eslint-env jest */
+import React from 'react'
+import { mount, render, shallow } from 'enzyme'
+import PasswordField from './PasswordField'
+
+describe('<PasswordField />', () => {
+  it('matches the previous snapshot', () => {
+    const tree = render(<PasswordField />)
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('disables the button when the field is disabled', () => {
+    const tree = mount(<PasswordField disabled />)
+    const toggleButton = tree.findWhere((e) => e.name() === 'IconButton')
+    expect(toggleButton.prop('disabled')).toBe(true)
+  })
+
+  it('hides the password by default', () => {
+    const tree = mount(<PasswordField />)
+    expect(tree.find('input').prop('type')).toBe('password')
+  })
+
+  it('shows the password by default if the visible prop is set to true', () => {
+    const tree = mount(<PasswordField visible />)
+    expect(tree.find('input').prop('type')).toBe('text')
+  })
+
+  it('toggles the visibility when clicking the button', () => {
+    const tree = mount(<PasswordField />)
+
+    tree.findWhere((e) => e.name() === 'IconButton').simulate('click')
+    expect(tree.find('input').prop('type')).toBe('text')
+
+    tree.findWhere((e) => e.name() === 'IconButton').simulate('click')
+    expect(tree.find('input').prop('type')).toBe('password')
+  })
+
+  it.skip('toggles the visibility when calling toggleVisibility', () => {
+    const tree = shallow(<PasswordField />)
+
+    tree.instance().toggleVisibility()
+    expect(tree.find('input').prop('type')).toBe('text')
+
+    tree.instance().toggleVisibility()
+    expect(tree.find('input').prop('type')).toBe('password')
+  })
+})

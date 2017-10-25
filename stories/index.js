@@ -1,19 +1,14 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import TextField from 'material-ui/TextField'
 import PasswordField from '../src/PasswordField'
 
 function themed (children) {
   return (
-    <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-      <div style={{ fontFamily: 'Roboto, sans-serif' }}>
-        {children}
-      </div>
-    </MuiThemeProvider>
+    <div style={{ fontFamily: 'Roboto, sans-serif' }}>
+      {children}
+    </div>
   )
 }
 
