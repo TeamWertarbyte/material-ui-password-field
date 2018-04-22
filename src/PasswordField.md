@@ -1,6 +1,6 @@
 The password field can be used to let the user enter a password without needing a second field to enter the password twice. Instead, it provides a toggle button to display the password in clear text so that the user can check what they typed.
 
-In addition to the props documented above, the password field supports all props that Material-UI's [TextField](http://www.material-ui.com/v0.18.6/#/components/text-field) supports, except for `type` and `multiline`.
+In addition to the props documented above, the password field also supports all props that Material-UI's [Input](https://material-ui-next.com/api/input/) component supports.
 
 ```
 <PasswordField
