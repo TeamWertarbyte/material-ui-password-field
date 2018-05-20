@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
 import { mount, render, shallow } from 'enzyme'
+import unwrap from '@material-ui/core/test-utils/unwrap'
 import PasswordField from './PasswordField'
 
 describe('<PasswordField />', () => {
@@ -35,13 +36,16 @@ describe('<PasswordField />', () => {
     expect(tree.find('input').prop('type')).toBe('password')
   })
 
-  it.skip('toggles the visibility when calling toggleVisibility', () => {
-    const tree = shallow(<PasswordField />)
+  it('toggles the visibility when calling toggleVisibility', () => {
+    const UnstyledPasswordField = unwrap(PasswordField)
+    const tree = mount(<UnstyledPasswordField classes={{}} />)
 
     tree.instance().toggleVisibility()
+    tree.update()
     expect(tree.find('input').prop('type')).toBe('text')
 
     tree.instance().toggleVisibility()
+    tree.update()
     expect(tree.find('input').prop('type')).toBe('password')
   })
 })
