@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, render } from 'enzyme'
 import unwrap from '@material-ui/core/test-utils/unwrap'
 import PasswordField from './PasswordField'
 
