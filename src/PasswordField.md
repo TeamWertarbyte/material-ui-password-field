@@ -8,21 +8,27 @@ In addition to the props documented above, the password field also supports all 
 />
 ```
 
-Like a text field, it can have a floating label and a hint.
+It can be used like Material-UI's `Input` component, allowing integration with `FormControl`.
 
 ```
-<PasswordField
-  hintText='Enter your secret password'
-  floatingLabelText='Password'
-/>
+const FormControl = require('@material-ui/core/FormControl').default;
+const FormHelperText = require('@material-ui/core/FormHelperText').default;
+const InputLabel = require('@material-ui/core/InputLabel').default;
+
+<FormControl>
+  <InputLabel htmlFor='name-label'>Password</InputLabel>
+  <PasswordField
+    id='name-label'
+    placeholder='horse-battery-staple'
+  />
+  <FormHelperText>Enter your secret password</FormHelperText>
+</FormControl>
 ```
 
 When the password field is disabled, the button is less opaque.
 
 ```
 <PasswordField
-  hintText='Enter your secret password'
-  floatingLabelText='Password'
   disabled
 />
 ```
@@ -30,19 +36,16 @@ When the password field is disabled, the button is less opaque.
 The password field also supports displaying errors, which is nice for form validation.
 
 ```
-<PasswordField
-  hintText='Enter your secret password'
-  floatingLabelText='Password'
-  value='123'
-  errorText='Your password is too short'
-/>
-```
+const FormControl = require('@material-ui/core/FormControl').default;
+const FormHelperText = require('@material-ui/core/FormHelperText').default;
+const InputLabel = require('@material-ui/core/InputLabel').default;
 
-If the default style doesn't fit your needs, you can tweak the styles of the button and the icon.
-
-```
-<PasswordField
-  visibilityButtonStyle={{ transform: 'rotate(15deg)' }}
-  visibilityIconStyle={{ color: 'blue' }}
-/>
+<FormControl error>
+  <InputLabel htmlFor='error-label'>Password</InputLabel>
+  <PasswordField
+    id='error-label'
+    value='123'
+  />
+  <FormHelperText>Your password is too short</FormHelperText>
+</FormControl>
 ```

@@ -47,8 +47,6 @@ class PasswordField extends React.Component {
     const {
       classes,
       buttonDisabled,
-      visibilityButtonStyle,
-      visibilityIconStyle,
       visible: visibleProp, // eslint-disable-line
       ...other
     } = this.props
