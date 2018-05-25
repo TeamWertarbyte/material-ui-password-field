@@ -1,6 +1,6 @@
 {
   "name": "material-ui-password-field",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A password field using Material-UI.",
   "main": "lib/PasswordField.js",
   "scripts": {
