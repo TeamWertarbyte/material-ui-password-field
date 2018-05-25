@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^1.0.0",
-    "material-ui-toggle-icon": "^1.0.0",
+    "material-ui-toggle-icon": "^1.0.1",
     "prop-types": "^15.5.10"
   },
   "standard": {
