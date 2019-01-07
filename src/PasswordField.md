@@ -44,5 +44,6 @@ If the default style doesn't fit your needs, you can tweak the styles of the but
 <PasswordField
   visibilityButtonStyle={{ transform: 'rotate(15deg)' }}
   visibilityIconStyle={{ color: 'blue' }}
+  innerRef={(ref) => console.log(ref)}
 />
 ```

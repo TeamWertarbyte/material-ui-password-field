@@ -116,6 +116,7 @@ class PasswordField extends React.Component {
       visibilityButtonStyle,
       visibilityIconStyle,
       visible: visibleProp, // eslint-disable-line
+      innerRef,
       ...other
     } = this.props
 
@@ -139,6 +140,7 @@ class PasswordField extends React.Component {
           type={visible ? 'text' : 'password'}
           onFocus={(event) => this.handleInputFocus(event)}
           onBlur={(event) => this.handleInputBlur(event)}
+          ref={innerRef}
         />
         {hintText && !errorText ? <div style={prepareStyles(styles.hint)}>{actualErrorText}</div> : null}
         <IconButton
@@ -176,6 +178,10 @@ if (process.env.NODE_ENV !== 'production') {
      * Set this to `true` to disable the visibility button.
      */
     disableButton: PropTypes.bool,
+    /**
+     * Function to get a reference of the inner [TextField](http://www.material-ui.com/v0.18.6/#/components/text-field) element.
+     */
+    innerRef: PropTypes.func,
     /**
      * Set this to `true` to make the password _initially_ visible. Use `toggleVisibility()` to change it later.
      */

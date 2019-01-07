@@ -27,6 +27,7 @@ import PasswordField from 'material-ui-password-field'
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | disableButton | `bool` | `false` | Set this to `true` to disable the visibility button. |
+| innerRef | `func` | | Function to get a reference of the inner [TextField](http://www.material-ui.com/v0.18.6/#/components/text-field) element. |
 | style | `object` | | Override the inline-styles of the root element. |
 | textFieldStyle | `object` | | Override the inline-styles of the `TextField` element. |
 | visibilityButtonStyle | `object` | | Override the inline-styles of the `IconButton` element. |
