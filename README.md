@@ -26,11 +26,8 @@ import PasswordField from 'material-ui-password-field'
 ## Properties
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| disableButton | `bool` | `false` | Set this to `true` to disable the visibility button. |
-| style | `object` | | Override the inline-styles of the root element. |
-| textFieldStyle | `object` | | Override the inline-styles of the `TextField` element. |
-| visibilityButtonStyle | `object` | | Override the inline-styles of the `IconButton` element. |
-| visibilityIconStyle | `object` | | Override the inline-styles of the `SVGIcon` element used for the visibility icon. |
+| buttonDisabled | `bool` | `false` | Set this to `true` to disable the visibility button. |
+| classes | `object` | | Override or extend the styles applied to the component. |
 | visible | `bool` | `false` | Set this to `true` to make the password initially visible. |
 
 Additionally, all properties of Material UI's [Text Field][mui-text-field] should be supported, except for `type` and `multiLine`. Please open an issue if something is missing or does not work as expected.
