@@ -37,6 +37,7 @@ Additionally, all properties of Material UI's [Text Field][mui-text-field] shoul
 
 ## CSS
 You can override all the class names thanks to the `classes` property. This property accepts the following keys:
+
 | Name | Description |
 | ---- | ----------- |
 | `root` | Styles applied to the root element. |
