@@ -35,6 +35,15 @@ import PasswordField from 'material-ui-password-field'
 
 Additionally, all properties of Material UI's [Text Field][mui-text-field] should be supported, except for `type` and `multiLine`. Please open an issue if something is missing or does not work as expected.
 
+## CSS
+You can override all the class names thanks to the `classes` property. This property accepts the following keys:
+| Name | Description |
+| ---- | ----------- |
+| `root` | Styles applied to the root element. |
+| `input` | Styles applied to the `Input` element. |
+| `iconButton` | Styles applied to the `IconButton` element. |
+| `icon` | Styles applied to the `ToggleIcon` element. |
+
 ## Credits
 Some code for the input component was adapted from Material UI's [Text Field][mui-text-field] that we all know and love.
 

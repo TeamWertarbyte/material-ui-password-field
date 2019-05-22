@@ -10,7 +10,9 @@ import ToggleIcon from 'material-ui-toggle-icon'
 
 const styles = {
   root: {},
-  input: {}
+  input: {},
+  iconButton: {},
+  icon: {}
 }
 
 class PasswordField extends React.Component {
@@ -63,11 +65,13 @@ class PasswordField extends React.Component {
         endAdornment={
           <InputAdornment position='end' className={classes.adornment}>
             <IconButton
+              className={classes.iconButton}
               onClick={this.toggleVisibility}
               onMouseDown={this.handleButtonMouseDown}
               disabled={other.disabled || buttonDisabled}
             >
               <ToggleIcon
+                className={classes.icon}
                 on={visible}
                 onIcon={<Visibility />}
                 offIcon={<VisibilityOff />}
