@@ -23,11 +23,13 @@ class PasswordField extends React.Component {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.visible !== this.props.visible) {
-      this.setState({
-        visible: nextProps.visible
-      })
+  static getDerivedStateFromProps(nextProps, prevState){
+    return nextProps.visible !== prevState.visible ? { visible: nextProps.visible } : null 
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.visible !== this.props.visible) {
+      this.setState({visible: this.props.visible})
     }
   }
 
