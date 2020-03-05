@@ -26,6 +26,15 @@ describe('<PasswordField />', () => {
     expect(tree.find('input').prop('type')).toBe('text')
   })
 
+  it('shows and hides the password when changing the visible prop', () => {
+    const tree = mount(<PasswordField />)
+    expect(tree.find('input').prop('type')).toBe('password')
+    tree.setProps({ visible: true })
+    expect(tree.find('input').prop('type')).toBe('text')
+    tree.setProps({ visible: false })
+    expect(tree.find('input').prop('type')).toBe('password')
+  })
+
   it('toggles the visibility when clicking the button', () => {
     const tree = mount(<PasswordField />)
 
