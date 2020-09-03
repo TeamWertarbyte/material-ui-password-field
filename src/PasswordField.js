@@ -24,7 +24,10 @@ class PasswordField extends React.Component {
   }
 
   static getDerivedStateFromProps (nextProps, prevState) {
-    return nextProps.visible !== prevState.visible ? { visible: nextProps.visible } : null
+    if (nextProps.visible !== prevState.prevPropVisible) {
+      return { visible: nextProps.visible, prevPropVisible: nextProps.visible }
+    }
+    return null
   }
 
   /**
